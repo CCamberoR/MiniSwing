@@ -7,7 +7,6 @@ public class seguirPelota : MonoBehaviour
     public float distanciaHorizontal = 5.0f; // Distancia horizontal entre la cámara y la pelota
     public float alturaInicial = 3.0f; // Altura inicial de la cámara
     public float velocidadRotacion = 50.0f; // Velocidad de rotación de la cámara
-
     private Vector3 offset; // Offset entre la posición de la cámara y la pelota
     private float distanciaActualVertical; // Distancia actual entre la cámara y la pelota
     private float anguloVertical = 0.0f; // Ángulo vertical de la cámara
@@ -23,6 +22,7 @@ public class seguirPelota : MonoBehaviour
 
         // Calcular la distancia inicial vertical
         distanciaActualVertical = Vector3.Distance(transform.position, objetivo.position);
+
     }
 
     void FixedUpdate()
@@ -53,5 +53,7 @@ public class seguirPelota : MonoBehaviour
 
         // Asegurar que la cámara mire hacia la pelota
         transform.LookAt(objetivo);
+
+        
     }
 }
