@@ -164,7 +164,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5000001
+  m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac37c37cb1d861642b28beab18469111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VortexForce: 20
+  VortexForce: 10
 --- !u!222 &128097578
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holePos: {fileID: 128097571}
   dummyBall: {fileID: 626892242}
-  MaxHoleDropOffset: 1.5
+  MaxHoleDropOffset: 0.5
   MaxstayTime: 0.5
   endLevelText: {fileID: 0}
   hitCount: 0
@@ -631,7 +631,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 636278050}
   serializedVersion: 4
-  m_Mass: 0.5
+  m_Mass: 1
   m_Drag: 0.1
   m_AngularDrag: 0.1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -981,7 +981,7 @@ Transform:
   m_GameObject: {fileID: 1426103103}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.0167537, y: -5.1, z: -0.1086702}
+  m_LocalPosition: {x: 4.0167537, y: -5.55, z: -0.1086702}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1192,7 +1192,7 @@ Transform:
   m_GameObject: {fileID: 1567804143}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.2142935, y: -1.76, z: -2.1679475}
+  m_LocalPosition: {x: 5.2142935, y: -2.477, z: -2.1679475}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1548,7 +1548,7 @@ Transform:
   m_GameObject: {fileID: 1781161415}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.5999998, y: -0.91999996, z: 4.7266665}
+  m_LocalPosition: {x: -0.196, y: -2.98, z: 4.727}
   m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 0.6666667}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1567,6 +1567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objetivo: {fileID: 636278054}
+  lineRenderer: {fileID: 1781161416}
 --- !u!1 &1983878440
 GameObject:
   m_ObjectHideFlags: 0

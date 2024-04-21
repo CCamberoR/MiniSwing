@@ -66,10 +66,9 @@ public class Dropper : MonoBehaviour
 
 
     void Update(){
-        /*if (dummyBall.activeSelf && dummyBall.transform.position.y < holePos.transform.position.y){
-            endLevelText.text = "NIVEL FINALIZADO\nGolpes: " + hitCount;
-            endLevelText.gameObject.SetActive(true);
-        }*/
+        if (dummyBall.activeSelf && dummyBall.transform.position.y < holePos.transform.position.y){
+             Debug.Log("Partida finalizada con " + hitCount + " golpes");
+        }
     }
 
 }

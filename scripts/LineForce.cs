@@ -7,7 +7,7 @@ public class LineForce : MonoBehaviour
     private bool isAiming;
     private Rigidbody rigidbod;
     [SerializeField] private float stopVelocity = 0.15f;
-    private float shotPower=2;
+    private float shotPower=10;
     public Vector3[] positions;
 
     private void Awake()
@@ -27,6 +27,8 @@ public class LineForce : MonoBehaviour
         ProcessAim();
         
         SlowRigidbody(rigidbod, 0.001f);
+
+        lineRenderer.SetPosition(0, transform.position);
     }
 
     private void OnMouseDown()
@@ -60,7 +62,7 @@ public class LineForce : MonoBehaviour
 
         Vector3 horizontalWorldPoint = new Vector3(worldPoint.x, transform.position.y, worldPoint.z);
         Vector3 direction=-(horizontalWorldPoint-transform.position).normalized;
-        float strength = 10*Vector3.Distance(transform.position, horizontalWorldPoint);
+        float strength = Vector3.Distance(transform.position, horizontalWorldPoint);
         rigidbod.AddForce(direction*strength*shotPower);
         Dropper.Instance.hitCount++;
     }
@@ -77,7 +79,7 @@ public class LineForce : MonoBehaviour
         }
 
         // Adjust shotPower based on the length of the line
-        shotPower = lineLength;
+        shotPower = 15*lineLength;
 
         Vector3[] positions = {transform.position, worldPoint};
         lineRenderer.SetPositions(positions);
