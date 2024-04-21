@@ -19,13 +19,14 @@ public class LineForce : MonoBehaviour
     }
 
 
-    private void FixedUpdate()
-    {
+    private void FixedUpdate(){
         if (rigidbod.velocity.magnitude < stopVelocity){
             Stop();
         }
         
         ProcessAim();
+        
+        SlowRigidbody(rigidbod, 0.001f);
     }
 
     private void OnMouseDown()
@@ -61,6 +62,11 @@ public class LineForce : MonoBehaviour
         Vector3 direction=-(horizontalWorldPoint-transform.position).normalized;
         float strength = 10*Vector3.Distance(transform.position, horizontalWorldPoint);
         rigidbod.AddForce(direction*strength*shotPower);
+        Dropper.Instance.hitCount++;
+    }
+
+    private void SlowRigidbody(Rigidbody rigidbody, float slowAmount){
+        rigidbod.velocity = rigidbod.velocity.normalized * (rigidbody.velocity.magnitude - slowAmount);
     }
 
     private void DrawLine(Vector3 worldPoint){

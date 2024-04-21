@@ -1,43 +1,75 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Dropper : MonoBehaviour{
-    
+public class Dropper : MonoBehaviour
+{
+    public static Dropper Instance; // Singleton instance
+
     [SerializeField] private GameObject holePos;
+    [SerializeField] private GameObject dummyBall;
     public float MaxHoleDropOffset;
     private float stayTimer = 0;
     public float MaxstayTime;
     private bool hasDropped = false;
+    [SerializeField] private Text endLevelText; // UI Text component to display the end level message
+    public int hitCount = 0; // Variable to track the number of hits
 
 
-    void OnTriggerStay(Collider other){
-        if (other.enabled && other.CompareTag("Ball")){
+
+    void Start()
+    {
+        dummyBall.SetActive(false); // Make the "DummyBall" invisible
+    }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this; // Set the singleton instance
+        }
+        else
+        {
+            Destroy(gameObject); // Destroy the duplicate instance
+        }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.enabled && other.CompareTag("Player"))
+        {
             stayTimer += Time.deltaTime;
-            Ball putter=other.GetComponent<Ball>();
-            if (putter){
-                putter.IsAtHole = true;
-            }
 
             Vector3 ballXYPos = new Vector3(other.transform.position.x, 0f, other.transform.position.z);
-            Vector3 holeXYPos = new Vector3(other.transform.position.x, 0f, other.transform.position.z);
+            Vector3 holeXYPos = new Vector3(holePos.transform.position.x, 0f, holePos.transform.position.z);
             if (Mathf.Abs(ballXYPos.x - holeXYPos.x) < MaxHoleDropOffset &&
-                Mathf.Abs(ballXYPos.y - holeXYPos.y) < MaxHoleDropOffset &&
-                (other.attachedRigidbody.velocity.magnitude < 1 || stayTimer >= MaxstayTime)){
-                if (!hasDropped){
+                Mathf.Abs(ballXYPos.z - holeXYPos.z) < MaxHoleDropOffset &&
+                (other.attachedRigidbody.velocity.magnitude < 1 || stayTimer >= MaxstayTime))
+            {
+                if (!hasDropped)
+                {
                     hasDropped = true;
-                    other.transform.position = holePos.transform.position;
-                    other.attachedRigidbody.velocity = Vector3.zero;
-                    putter.SetDummyBall(true);
-                    StartCoroutine(Game.Instance.FinishLevel());
+                    other.gameObject.SetActive(false); // Make the "Player" ball invisible
+                    dummyBall.transform.position = other.transform.position; // Set the "DummyBall" position
+                    dummyBall.SetActive(true); // Make the "DummyBall" visible
                 }
-
             }
         }
     }
-    void Start(){
-        
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            dummyBall.SetActive(false); // Make the "DummyBall" invisible
+        }
     }
 
+
     void Update(){
-        
+        /*if (dummyBall.activeSelf && dummyBall.transform.position.y < holePos.transform.position.y){
+            endLevelText.text = "NIVEL FINALIZADO\nGolpes: " + hitCount;
+            endLevelText.gameObject.SetActive(true);
+        }*/
     }
+
 }
