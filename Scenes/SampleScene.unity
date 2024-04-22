@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 128097578}
   - component: {fileID: 128097579}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: Hole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -188,7 +188,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c1ff8ec2fafa0e24eb2ebf2fe7a13b9f, type: 2}
+  - {fileID: 2100000, guid: 0a3f46485e2a5e9468ba0374ca8cbe61, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -225,13 +225,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 128097571}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.0011928326, y: -0.0007932862, z: -0.0020940804, w: 0.99999684}
   m_LocalPosition: {x: 0, y: 0, z: -0.24}
   m_LocalScale: {x: 0.5, y: 0.15, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.136, y: -0.091, z: -0.24}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 3.532, y: -1.859}
@@ -289,8 +289,8 @@ GameObject:
   - component: {fileID: 574246424}
   - component: {fileID: 574246423}
   m_Layer: 0
-  m_Name: Cube (2)
-  m_TagString: Untagged
+  m_Name: RedWall1
+  m_TagString: RedWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -302,7 +302,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 574246422}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 7a1cb247e0a2dcb49b6aff1f07c3158c, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -529,6 +529,7 @@ GameObject:
   - component: {fileID: 636278055}
   - component: {fileID: 636278057}
   - component: {fileID: 636278058}
+  - component: {fileID: 636278059}
   m_Layer: 0
   m_Name: Pelota
   m_TagString: Player
@@ -543,7 +544,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 636278050}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 17603a7f9d3f10942a047738380ae508, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -677,6 +678,22 @@ MonoBehaviour:
   lineRenderer: {fileID: 1781161416}
   stopVelocity: 0.15
   positions: []
+--- !u!114 &636278059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636278050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fd022027082c48469fd021f5cd9fb91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1829059036}
+  redWallHitSound: {fileID: 8300000, guid: ff2f7bd4bf140c440b1bd857ea46d276, type: 3}
+  blueWallHitSound: {fileID: 0}
+  brownWallHitSound: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,8 +1017,8 @@ GameObject:
   - component: {fileID: 1463853407}
   - component: {fileID: 1463853406}
   m_Layer: 0
-  m_Name: Cube (4)
-  m_TagString: Untagged
+  m_Name: RedWall3
+  m_TagString: RedWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1013,7 +1030,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1463853405}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 7a1cb247e0a2dcb49b6aff1f07c3158c, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1211,8 +1228,8 @@ GameObject:
   - component: {fileID: 1594642688}
   - component: {fileID: 1594642687}
   m_Layer: 0
-  m_Name: Cube (5)
-  m_TagString: Untagged
+  m_Name: GreenRamp1
+  m_TagString: GreenFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1224,7 +1241,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1594642686}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 95fdd9f13dcc7204da909a293d4a41b7, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1316,8 +1333,8 @@ GameObject:
   - component: {fileID: 1615637672}
   - component: {fileID: 1615637671}
   m_Layer: 0
-  m_Name: Cube (3)
-  m_TagString: Untagged
+  m_Name: RedWall2
+  m_TagString: RedWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1329,7 +1346,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1615637670}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 7a1cb247e0a2dcb49b6aff1f07c3158c, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1568,6 +1585,134 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objetivo: {fileID: 636278054}
   lineRenderer: {fileID: 1781161416}
+--- !u!1 &1829059035
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1829059037}
+  - component: {fileID: 1829059036}
+  m_Layer: 0
+  m_Name: SoundEffects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1829059036
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829059035}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1829059037
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829059035}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.96, y: -9.65, z: -0.5739508}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1983878440
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,8 +1726,8 @@ GameObject:
   - component: {fileID: 1983878442}
   - component: {fileID: 1983878441}
   m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
+  m_Name: GreenFloor1
+  m_TagString: GreenFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1594,7 +1739,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1983878440}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 95fdd9f13dcc7204da909a293d4a41b7, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1689,3 +1834,4 @@ SceneRoots:
   - {fileID: 1567804147}
   - {fileID: 626892246}
   - {fileID: 128097575}
+  - {fileID: 1829059037}
