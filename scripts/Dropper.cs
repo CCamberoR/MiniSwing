@@ -14,7 +14,8 @@ public class Dropper : MonoBehaviour
     [SerializeField] private Text endLevelText; // UI Text component to display the end level message
     public int hitCount = 0; // Variable to track the number of hits
 
-
+    public AudioSource audioSource;
+    public AudioClip GameFinishSound;
 
     void Start()
     {
@@ -45,12 +46,12 @@ public class Dropper : MonoBehaviour
                 Mathf.Abs(ballXYPos.z - holeXYPos.z) < MaxHoleDropOffset &&
                 (other.attachedRigidbody.velocity.magnitude < 1 || stayTimer >= MaxstayTime))
             {
-                if (!hasDropped)
-                {
+                if (!hasDropped){
                     hasDropped = true;
                     other.gameObject.SetActive(false); // Make the "Player" ball invisible
                     dummyBall.transform.position = other.transform.position; // Set the "DummyBall" position
                     dummyBall.SetActive(true); // Make the "DummyBall" visible
+                    audioSource.PlayOneShot(GameFinishSound); // Play the game finish sound
                 }
             }
         }

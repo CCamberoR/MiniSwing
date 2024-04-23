@@ -36,6 +36,6 @@ public class lineaPelota : MonoBehaviour
 
         // Establece la segunda posición del LineRenderer en la dirección en la que quieres lanzar la pelota
         // Aquí, simplemente lo establecemos a 10 unidades en la dirección en la que la cámara está mirando
-        lineRenderer.SetPosition(1, transform.position + transform.forward * 10);
+        lineRenderer.SetPosition(1, transform.position + transform.forward*10);
     }
 }

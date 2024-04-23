@@ -9,6 +9,15 @@ public class LineForce : MonoBehaviour
     [SerializeField] private float stopVelocity = 0.15f;
     private float shotPower=10;
     public Vector3[] positions;
+    public int powerMultiplier = 35;
+    public float maxShotPower = 100; // Set this to your desired maximum shot power
+
+    public AudioSource audioSource;
+    public AudioClip ballHitSound1;
+    public AudioClip ballHitSound2;
+    public AudioClip ballHitSound3;
+    public AudioClip ballHitSound4;
+    public AudioClip ballHitSound5;
 
     private void Awake()
     {
@@ -60,11 +69,29 @@ public class LineForce : MonoBehaviour
         isAiming = false;
         lineRenderer.enabled = false;
 
-        Vector3 horizontalWorldPoint = new Vector3(worldPoint.x, transform.position.y, worldPoint.z);
-        Vector3 direction=-(horizontalWorldPoint-transform.position).normalized;
-        float strength = Vector3.Distance(transform.position, horizontalWorldPoint);
-        rigidbod.AddForce(direction*strength*shotPower);
+        Vector3 direction = (transform.position - worldPoint).normalized;
+        float strength = Vector3.Distance(transform.position, worldPoint);
+        rigidbod.AddForce(direction * strength * shotPower);
         Dropper.Instance.hitCount++;
+
+        int randomSound = Random.Range(1, 6);
+        switch (randomSound){
+            case 1:
+                audioSource.PlayOneShot(ballHitSound1);
+                break;
+            case 2:
+                audioSource.PlayOneShot(ballHitSound2);
+                break;
+            case 3:
+                audioSource.PlayOneShot(ballHitSound3);
+                break;
+            case 4:
+                audioSource.PlayOneShot(ballHitSound4);
+                break;
+            case 5:
+                audioSource.PlayOneShot(ballHitSound5);
+                break;
+        }
     }
 
     private void SlowRigidbody(Rigidbody rigidbody, float slowAmount){
@@ -79,7 +106,10 @@ public class LineForce : MonoBehaviour
         }
 
         // Adjust shotPower based on the length of the line
-        shotPower = 15*lineLength;
+        shotPower = powerMultiplier*lineLength;
+
+        // Limit shotPower to a maximum value
+        shotPower = Mathf.Min(shotPower, maxShotPower);
 
         Vector3[] positions = {transform.position, worldPoint};
         lineRenderer.SetPositions(positions);

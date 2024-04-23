@@ -4,7 +4,7 @@ public class Vortex : MonoBehaviour{
 
     private Collider vortexCollider;
 
-    public float VortexForce=10;
+    public float VortexForce=100;
 
     private void Awake(){
         vortexCollider = GetComponent<Collider>();

@@ -3,8 +3,8 @@ using UnityEngine;
 public class seguirPelota : MonoBehaviour
 {
     public Transform objetivo; // La pelota a la que seguirá la cámara
-    public float distanciaVertical = 5.0f; // Distancia vertical entre la cámara y la pelota
-    public float distanciaHorizontal = 5.0f; // Distancia horizontal entre la cámara y la pelota
+    public float distanciaVertical = 8.0f; // Distancia vertical entre la cámara y la pelota
+    public float distanciaHorizontal = 8.0f; // Distancia horizontal entre la cámara y la pelota
     public float alturaInicial = 3.0f; // Altura inicial de la cámara
     public float velocidadRotacion = 50.0f; // Velocidad de rotación de la cámara
     private Vector3 offset; // Offset entre la posición de la cámara y la pelota
